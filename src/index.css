@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles for RTI-GPT */
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Print CSS for generating the RTI application letter */
+@media print {
+  /* Hide all UI elements except the printable area */
+  body * {
+    visibility: hidden;
+  }
+  
+  #printable-letter, #printable-letter * {
+    visibility: visible;
+  }
+  
+  #printable-letter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif !important;
+    font-size: 12pt !important;
+    line-height: 1.6 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  
+  /* Force page break behavior if needed */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* Set page margins */
+  @page {
+    size: A4;
+    margin: 20mm 20mm 20mm 20mm;
+  }
+}
